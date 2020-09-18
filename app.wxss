@@ -1,0 +1,43 @@
+/**app.wxss**/
+page {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #FCFEFF;
+}
+
+.catalog {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.catalog-item {
+  border: 1px solid;
+  border-color: rgba(255, 0, 0, 0);
+}
+
+.footer {
+  position: absolute;
+  z-index: 100;
+  box-sizing: border-box;
+}

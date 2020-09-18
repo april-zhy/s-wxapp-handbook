@@ -1,0 +1,67 @@
+<!-- pages/handbook/home.wxml -->
+<view class="container">
+  <swiper class="pageSwiper" current="{{currentPageIndex}}">
+    <block wx:for="{{pages}}" wx:key="*this" wx:for-item="page">
+      <swiper-item>
+        <!-- 目录 -->
+        <block wx:if="{{page.id ==='catalog'}}">
+          <view class="catalog" style="{{catalogStyle}}" bindtap="navigateToPage">
+            <block wx:for="{{catalogList}}" wx:key="*this" wx:for-index="catalogIndex" wx:for-item="catalog">
+              <view class="catalog-item" style="{{catalogItemStyle}}" data-id="{{catalog.id}}"></view>
+            </block>
+          </view>
+        </block>
+        <!-- 文化轮播 -->
+        <block wx:if="{{page.id ==='struggle' ||  page.id ==='sincerity' }}">
+          <swiper class="culturalSwiper" style="{{culturalSwiperStyle}}" indicator-dots="{{culturalIndicatorDots}}">
+            <block wx:for="{{culturalSwiper}}" wx:key="*this" wx:for-index="culturalIndex">
+              <swiper-item>
+                <image class="cultural-img" src="https://itc.desaysv.com/dfs/devel/handbook/{{page.id}}/{{page.id}}_0{{culturalIndex+1}}.png" mode="cover"></image>
+              </swiper-item>
+            </block>
+          </swiper>
+        </block>
+        <!-- 创新文化轮播 -->
+        <block wx:if="{{page.id ==='innovate'}}">
+          <swiper class="culturalSwiper" style="{{culturalSwiperStyle}}" indicator-dots="{{culturalIndicatorDots}}">
+            <block wx:for="{{demoCulturalSwiper}}" wx:key="*this" wx:for-item="struggle">
+              <swiper-item>
+                <view class="culturalSwiperSlide" style="background:{{struggle.style}};">
+                  创新文化：{{struggle.name}}
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </block>
+        <!-- 协同文化轮播 -->
+        <block wx:if="{{page.id ==='coordination'}}">
+          <swiper class="culturalSwiper" style="{{culturalSwiperStyle}}" indicator-dots="{{culturalIndicatorDots}}">
+            <block wx:for="{{demoCulturalSwiper}}" wx:key="*this" wx:for-item="struggle">
+              <swiper-item>
+                <view class="culturalSwiperSlide" style="background:{{struggle.style}};">
+                  协同文化：{{struggle.name}}
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </block>
+        <!-- 绩效文化轮播 -->
+        <block wx:if="{{page.id ==='performance'}}">
+          <swiper class="culturalSwiper" style="{{culturalSwiperStyle}}" indicator-dots="{{culturalIndicatorDots}}">
+            <block wx:for="{{demoCulturalSwiper}}" wx:key="*this" wx:for-item="struggle">
+              <swiper-item>
+                <view class="culturalSwiperSlide" style="background:{{struggle.style}};">
+                  绩效文化：{{struggle.name}}
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </block>
+        <image class="img" src="https://itc.desaysv.com/dfs/devel/handbook/{{page.src}}" mode="aspectFit"></image>
+        <block wx:if="{{page.id !=='home' && page.id !=='salute' && page.id !=='catalog'}}">
+          <view class="footer" style="{{footerStyle}}" data-id="catalog" bindtap="navigateToPage"></view>
+        </block>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
