@@ -1,2 +1,2 @@
 # mini-program
-demo for wx mini-program
+wx mini-program
